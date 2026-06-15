@@ -1,0 +1,16 @@
+{% if mode == "standalone" %}
+{% if has_any_context %}
+## 当前项目上下文
+{% if project_goal %}项目目标：{{ project_goal }}
+{% endif %}{% if current_task %}本次任务：{{ current_task }}
+{% endif %}{% if environment_info %}环境信息：{{ environment_info }}
+{% endif %}
+{% endif %}
+{% endif %}
+请在提交后继续跟进 CI 和部署结果，不要在代码推送后就停止。
+
+请你：
+1. 关注 CI 各阶段结果，并指出失败点。
+2. 如果部署发生异常，优先帮助定位是构建、配置、环境还是代码问题。
+3. 给出下一步处理建议：修复、回滚、补充验证或继续观察。
+4. 在流程结束时，输出最终状态总结：已完成、待观察、已知风险。

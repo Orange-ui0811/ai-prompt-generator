@@ -1,0 +1,17 @@
+{% if mode == "standalone" %}
+{% if has_any_context %}
+## 当前项目上下文
+{% if project_goal %}项目目标：{{ project_goal }}
+{% endif %}{% if current_task %}本次任务：{{ current_task }}
+{% endif %}{% if risk_preference %}时间与风险偏好：{{ risk_preference }}
+{% endif %}
+{% endif %}
+{% endif %}
+请基于当前理解创建一个可执行的任务计划。
+
+要求：
+1. 把工作拆成若干可落地步骤。
+2. 标出每一步的目标、输入、输出。
+3. 优先选择低风险、可快速验证的顺序。
+4. 如果可以并行，请指出哪些步骤可并行。
+5. 在真正改代码前，先告诉我你准备先做哪一步。

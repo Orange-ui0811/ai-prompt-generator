@@ -1,0 +1,16 @@
+{% if mode == "standalone" %}
+{% if has_any_context %}
+## 当前项目上下文
+{% if project_goal %}项目目标：{{ project_goal }}
+{% endif %}{% if current_task %}本次任务：{{ current_task }}
+{% endif %}{% if impact_scope %}影响范围：{{ impact_scope }}
+{% endif %}
+{% endif %}
+{% endif %}
+先进入需求理解阶段，暂时不要实现。
+
+请你：
+1. 准确复述需求，区分"用户目标""技术任务""交付结果"。
+2. 标出不确定点、潜在歧义和隐藏风险。
+3. 明确本次任务的边界：做什么，不做什么。
+4. 如果存在多种理解，请给出你认为最合理的一种，并说明原因。

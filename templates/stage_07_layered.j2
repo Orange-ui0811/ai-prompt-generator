@@ -1,0 +1,21 @@
+{% if mode == "standalone" %}
+{% if has_any_context %}
+## 当前项目上下文
+{% if project_goal %}项目目标：{{ project_goal }}
+{% endif %}{% if current_task %}本次任务：{{ current_task }}
+{% endif %}{% if impact_scope %}影响范围：{{ impact_scope }}
+{% endif %}
+{% endif %}
+{% endif %}
+请对改动进行分层验证，不要只做单点检查。
+
+请按以下顺序验证：
+1. 代码级验证：编译、静态检查、单元测试。
+2. 模块级验证：相关功能路径是否正常。
+3. 集成级验证：上下游是否受到影响。
+4. 回归验证：关键旧功能是否退化。
+
+请在每一层说明：
+- 验证了什么
+- 结果如何
+- 还剩什么风险

@@ -1,0 +1,173 @@
+stages:
+- id: 0
+  name: 提供项目背景与上下文
+  name_en: context
+  description: 先给我最关键的上下文，避免一开始就误判方向。
+  template_file: stage_00_context.j2
+  has_user_variables: true
+  user_variable_fields:
+  - project_goal
+  - current_task
+  - impact_scope
+  - known_issues
+  - related_files_modules
+  - environment_info
+  - time_constraints
+  - success_criteria
+  key_points:
+  - 当前项目是做什么的
+  - 这次修改影响哪个模块
+  - 当前已知问题、报错、截图或日志
+  - 相关文件、分支、接口、页面、设备或运行环境
+  - 是否有时间要求、兼容性要求、性能要求
+- id: 1
+  name: 理解需求
+  name_en: understand
+  description: 目标不是复述表面需求，而是识别真实目标、隐含假设和边界。
+  template_file: stage_01_understand.j2
+  has_user_variables: false
+  user_variable_fields: []
+  key_points:
+  - 这次到底要解决什么问题
+  - 用户真正想要的结果是什么
+  - 哪些属于本次范围，哪些不属于
+  - 需求里有没有歧义、冲突或缺失
+- id: 2
+  name: 定义成功标准
+  name_en: success_criteria
+  description: 没有成功标准，就很容易“做完了但没做对”。
+  template_file: stage_02_success.j2
+  has_user_variables: false
+  user_variable_fields: []
+  key_points:
+  - 功能结果怎样才算完成
+  - 哪些测试必须通过
+  - 哪些行为不能退化
+  - 交付后如何验证
+- id: 3
+  name: 明确约束、风险与非目标
+  name_en: constraints
+  description: 这是我建议你新增的重要阶段，能显著减少返工。
+  template_file: stage_03_constraints.j2
+  has_user_variables: false
+  user_variable_fields: []
+  key_points:
+  - 技术约束：语言、框架、平台、接口、设备、版本
+  - 业务约束：发布时间、权限、兼容要求
+  - 风险点：改动面大、依赖不清、测试成本高
+  - 非目标：这次明确不解决什么
+- id: 4
+  name: 创建任务计划
+  name_en: task_plan
+  description: 计划的目标不是写漂亮大纲，而是建立可执行路径。
+  template_file: stage_04_plan.j2
+  has_user_variables: false
+  user_variable_fields: []
+  key_points:
+  - 分阶段推进
+  - 先确认，再实现，再验证
+  - 每一步都有产出物
+- id: 5
+  name: 尽量使用测试驱动开发
+  name_en: tdd
+  description: 不是所有任务都适合纯 TDD，但都应该优先考虑“先验证再实现”。
+  template_file: stage_05_tdd.j2
+  has_user_variables: false
+  user_variable_fields: []
+  key_points:
+  - 先找已有测试
+  - 能补测试就先补
+  - 先写失败测试，再做最小实现
+- id: 6
+  name: 最小化实现
+  name_en: minimal_impl
+  description: 先做最小闭环，再考虑扩展和优化。
+  template_file: stage_06_minimal.j2
+  has_user_variables: false
+  user_variable_fields: []
+  key_points:
+  - 先解决核心问题
+  - 避免顺手重构过多
+  - 避免一次改太多层
+- id: 7
+  name: 分层验证
+  name_en: layered_verify
+  description: 这是确保“看起来能跑”和“实际上可靠”之间差距最小的关键阶段。
+  template_file: stage_07_layered.j2
+  has_user_variables: false
+  user_variable_fields: []
+  key_points:
+  - 先单元验证
+  - 再模块验证
+  - 再集成验证
+  - 再回归关键路径
+- id: 8
+  name: 本地人工测试
+  name_en: manual_test
+  description: 自动化验证不能完全代替人工体验，尤其是 UI、交互、设备和异常流程。
+  template_file: stage_08_manual.j2
+  has_user_variables: false
+  user_variable_fields: []
+  key_points:
+  - 走主流程
+  - 走异常流程
+  - 检查边界输入
+  - 记录未覆盖风险
+- id: 9
+  name: 独立审查
+  name_en: review
+  description: 把自己切换成 reviewer 视角，专门找问题，而不是解释自己的实现。
+  template_file: stage_09_review.j2
+  has_user_variables: false
+  user_variable_fields: []
+  key_points:
+  - 找 bug
+  - 找回归风险
+  - 找可维护性问题
+  - 找漏测点
+- id: 10
+  name: 变更摘要、回滚点与提交准备
+  name_en: commit_prep
+  description: 这是我建议新增的阶段。它能让提交、评审和发布更可控。
+  template_file: stage_10_commit.j2
+  has_user_variables: false
+  user_variable_fields: []
+  key_points:
+  - 这次到底改了什么
+  - 为什么这么改
+  - 如果上线有问题怎么回退
+  - 提交前工作区是否干净
+- id: 11
+  name: 干净提交
+  name_en: clean_commit
+  description: 提交应该可读、可追踪、可审查。
+  template_file: stage_11_push.j2
+  has_user_variables: false
+  user_variable_fields: []
+  key_points:
+  - 提交范围聚焦
+  - 提交信息清晰
+  - 不混入无关改动
+- id: 12
+  name: 推送并创建合并请求
+  name_en: merge_request
+  description: 这一步的重点不是“推上去”，而是让 reviewer 快速理解并安全评审。
+  template_file: stage_12_merge.j2
+  has_user_variables: false
+  user_variable_fields: []
+  key_points:
+  - PR/MR 标题清晰
+  - 描述清楚问题、方案、验证和风险
+  - 标明是否需要重点关注某些文件
+- id: 13
+  name: 观察 CI、部署与失败闭环
+  name_en: ci_observe
+  description: 你原本最后一步是对的，我帮你补全成“观察 + 响应 + 收尾”。
+  template_file: stage_13_ci.j2
+  has_user_variables: false
+  user_variable_fields: []
+  key_points:
+  - 看 CI 是否全部通过
+  - 看部署是否成功
+  - 看日志、监控、告警
+  - 失败后快速定位并补救

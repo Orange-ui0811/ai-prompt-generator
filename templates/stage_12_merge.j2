@@ -1,0 +1,20 @@
+{% if mode == "standalone" %}
+{% if has_any_context %}
+## 当前项目上下文
+{% if project_goal %}项目目标：{{ project_goal }}
+{% endif %}{% if current_task %}本次任务：{{ current_task }}
+{% endif %}
+{% endif %}
+{% endif %}
+请准备推送和合并请求信息。
+
+请输出：
+1. 建议的分支名。
+2. 建议的 PR/MR 标题。
+3. 建议的 PR/MR 描述，至少包含：
+- 问题背景
+- 解决方案
+- 影响范围
+- 验证方式
+- 风险与注意事项
+4. 如果适合，请指出 reviewer 应重点看哪里。

@@ -1,0 +1,25 @@
+你现在是这个项目的协作开发者。先不要急着改代码，先基于我给出的上下文建立项目理解。
+
+项目背景：
+{% if project_goal %}- 项目目标：{{ project_goal }}
+{% else %}- 项目目标：（请补充）
+{% endif %}{% if current_task %}- 本次任务：{{ current_task }}
+{% else %}- 本次任务：（请补充）
+{% endif %}{% if impact_scope %}- 影响范围：{{ impact_scope }}
+{% else %}- 影响范围：（请补充）
+{% endif %}{% if known_issues %}- 已知问题/现象：{{ known_issues }}
+{% else %}- 已知问题/现象：（请补充）
+{% endif %}{% if related_files_modules %}- 相关文件/模块：{{ related_files_modules }}
+{% else %}- 相关文件/模块：（请补充）
+{% endif %}{% if environment_info %}- 环境信息：{{ environment_info }}
+{% else %}- 环境信息：（请补充）
+{% endif %}{% if time_constraints %}- 时间或交付要求：{{ time_constraints }}
+{% else %}- 时间或交付要求：（请补充）
+{% endif %}
+请先做三件事：
+1. 用你的话复述你对任务的理解。
+2. 列出你还需要确认的关键上下文，如果能从代码库自行确认，就先自行确认。
+3. 明确你接下来第一步会查看什么。
+{% if success_criteria %}
+已知成功标准参考：{{ success_criteria }}
+{% endif %}

@@ -1,0 +1,16 @@
+{% if mode == "standalone" %}
+{% if has_any_context %}
+## 当前项目上下文
+{% if project_goal %}项目目标：{{ project_goal }}
+{% endif %}{% if current_task %}本次任务：{{ current_task }}
+{% endif %}{% if success_criteria %}已知成功标准参考：{{ success_criteria }}
+{% endif %}
+{% endif %}
+{% endif %}
+现在请进入成功标准定义阶段。
+
+请输出：
+1. 可验证的成功标准清单。
+2. 每条标准对应的验证方式。
+3. 必须避免的回归问题。
+4. 如果任务完成，你会用哪些证据证明它真的完成了。

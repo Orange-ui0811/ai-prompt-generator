@@ -1,0 +1,15 @@
+{% if mode == "standalone" %}
+{% if has_any_context %}
+## 当前项目上下文
+{% if project_goal %}项目目标：{{ project_goal }}
+{% endif %}{% if current_task %}本次任务：{{ current_task }}
+{% endif %}
+{% endif %}
+{% endif %}
+请准备一次干净提交。
+
+要求：
+1. 确认只提交与本任务相关的改动。
+2. 如果工作区有无关变更，请明确隔离。
+3. 生成简洁明确的提交说明。
+4. 提交前再次确认测试与验证结果。

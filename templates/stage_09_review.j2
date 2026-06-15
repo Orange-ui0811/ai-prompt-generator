@@ -1,0 +1,17 @@
+{% if mode == "standalone" %}
+{% if has_any_context %}
+## 当前项目上下文
+{% if project_goal %}项目目标：{{ project_goal }}
+{% endif %}{% if current_task %}本次任务：{{ current_task }}
+{% endif %}
+{% endif %}
+{% endif %}
+现在请以独立审查者身份重新审视这次改动。
+
+请重点检查：
+1. 是否存在逻辑 bug、边界条件遗漏或异常处理不足。
+2. 是否引入了性能、并发、兼容性或安全风险。
+3. 是否有测试盲区。
+4. 是否有看似可行但长期维护成本较高的实现。
+
+请优先列出问题和风险，再给出是否建议合入的判断。

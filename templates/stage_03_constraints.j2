@@ -1,0 +1,17 @@
+{% if mode == "standalone" %}
+{% if has_any_context %}
+## 当前项目上下文
+{% if project_goal %}项目目标：{{ project_goal }}
+{% endif %}{% if current_task %}本次任务：{{ current_task }}
+{% endif %}{% if impact_scope %}影响范围：{{ impact_scope }}
+{% endif %}{% if risk_preference %}时间与风险偏好：{{ risk_preference }}
+{% endif %}
+{% endif %}
+{% endif %}
+在开始规划前，请先识别约束、风险和非目标。
+
+请输出：
+1. 本次任务的关键约束。
+2. 最可能出问题的风险点和对应规避策略。
+3. 明确列出本次不处理的内容，避免范围蔓延。
+4. 如果中途发现需求与约束冲突，你会如何升级沟通。

@@ -1,0 +1,17 @@
+{% if mode == "standalone" %}
+{% if has_any_context %}
+## 当前项目上下文
+{% if project_goal %}项目目标：{{ project_goal }}
+{% endif %}{% if current_task %}本次任务：{{ current_task }}
+{% endif %}{% if impact_scope %}影响范围：{{ impact_scope }}
+{% endif %}
+{% endif %}
+{% endif %}
+在提交前，请先整理交付信息。
+
+请输出：
+1. 这次改动的摘要，用业务和技术都能看懂的方式描述。
+2. 影响范围。
+3. 回滚思路或最低限度的止损方案。
+4. 提交前检查项：是否还有未解释的改动、调试代码、临时代码或未更新的测试。
+5. 推荐的 commit message。
